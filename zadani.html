@@ -31,6 +31,9 @@
             <p class="text-warning">
               Použij v textu aspoň 3 internetové odkazy na zajímavé příklady
               využití JS!
+              <ul>
+                <li></li>
+              </ul>
             </p>
           </blockquote>
           <div class="bg-info p-3">
@@ -61,7 +64,12 @@
           <div class="bg-light p-3">
             <code>
               // 1. Vložit kód do tagu script<br />
-              &lt;script&gt;console.log('Hello');&lt;/script&gt;
+              &lt;script&gt;console.log('Hello');&lt;/script&gt;<br />
+              // 2. Připojit extení soubor<br />
+              &lt;script src="demo.js"&gt;&lt;/script&gt;<br />
+              // 3. Reakce na eventy<br />
+              &lt;button onclick='alert("Ahoj");'&gt;&lt;/button&gt;
+              
             </code>
           </div>
         </div>
@@ -194,7 +202,13 @@
             <p>Zde bude řešení.</p>
           </div>
           <script>
-          <!-- Zadejte JS kód -->
+            let jmeno = "Jan";
+            let prijmeni = "Stransky";
+            sedmy.innerHTML = "<p>Moje jmeno je " + jmeno + " " + prijmeni + "</p>"
+            let vaha = 125;
+            let vyska = 150;
+            sedmy.innerHTML += `<p>Moje vaha je ${vaha} kg, vyska ${vyska} cm</p>`; 
+            sedmy.innerHTML += "</p>Citát: \"Alea iaca est\"</p>";
           </script>
         </div>
         <div class="col-sm-6 bg-secondary text-light p-5">
@@ -216,7 +230,20 @@
             Oblast myších zájmů
           </div>
           <script>
-          <!-- Zadejte JS kód -->
+          function nahodnaBarva() {
+            let red = Math.floor(Math.random() * 256);
+            let green = Math.floor(Math.random() * 256);
+            let blue = Math.floor(Math.random() * 256);
+            return `rgb(${red}, ${green}, ${blue}`;
+          }
+          osmy.addEventListener('mouseenter', () => {
+            osmy.style.color= nahodnaBarva();
+            osmy.style.fontSize = "2em";
+          });
+          osmy.addEventListener('mouseleave', () => {
+            osmy.style.color= "white";
+            osmy.style.fontSize = "1em";
+          });
           </script>
         </div>
       </div>
@@ -246,8 +273,8 @@
             </button>
           </div>
           <script>
-            <!-- Zadejte JS kód -->
-          </script>
+            /* Zadejte JS kód */
+            </script>
         </div>
         <div class="col-sm-6 bg-secondary text-light p-5">
           <h2>10: Větvená podmínka switch a funkce</h2>
@@ -271,8 +298,8 @@
             <a href="">Vypiš den</a>
           </div>
           <script>
-           <!-- Zadejte JS kód -->
-          </script>
+           /* Zadejte JS kód */
+           </script>
         </div>
       </div>
       <hr />
@@ -287,8 +314,8 @@
           <div class="bg-info p-3" id="jedenacty">
           </div>
           <script>
-            <!-- Zadejte JS kód -->
-          </script>
+            /* Zadejte JS kód */
+            </script>
         </div>
         <div class="col-sm-6 bg-secondary text-light p-5">
           <h2>12: Cyklus while ve funkci</h2>
@@ -300,8 +327,8 @@
           <div class="bg-info p-3" id="dvanacty">            
           </div>
           <script>
-            <!-- Zadejte JS kód -->
-          </script>
+            /* Zadejte JS kód */
+            </script>
         </div>
       </div>
       <hr />
@@ -316,8 +343,8 @@
           <div class="bg-info p-3" id="trinacty">
           </div>
           <script>
-            <!-- Zadejte JS kód -->
-          </script>
+            /* Zadejte JS kód */
+            </script>
         </div>
         <div class="col-sm-6 bg-secondary text-light p-5">
           <h2>14: Časovač a náhodná změna obrázků</h2>
@@ -330,8 +357,8 @@
             <img src="img/hrad.webp" class="img-fluid" alt="foto" id="foto">            
           </div>
           <script>
-            <!-- Zadejte JS kód -->
-          </script>
+            /* Zadejte JS kód */
+            </script>
         </div>
       </div>      
     </main>
