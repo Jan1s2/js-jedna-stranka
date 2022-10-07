@@ -478,7 +478,7 @@
             //trinacty.innerText = time();
             trinacty.innerHTML = `<p>Datum ${cas.toLocaleDateString()}</p>`;
             trinacty.innerHTML += `<p>Cas ${cas.toLocaleTimeString()}</p>`;
-            }, 1000, false);
+            }, 1000 , false);
 
             </script>
         </div>
@@ -493,13 +493,20 @@
             <img src="img/hrad.webp" class="img-fluid" alt="foto" id="foto">            
           </div>
           <script>
-            /* Zadejte JS kód */
+            const photos = ["img/hrad.webp", "img/praha.jpg", "img/staromak.jpg", "img/vltava.jpg"];
+            function changePhoto() {
+              let cislo = Math.floor(Math.random() * 4);
+              foto.src = photos[cislo];
+            }
+            setInterval(() => {
+              changePhoto();
+            }, 3000);
             </script>
         </div>
       </div>      
     </main>
     <footer class="text-center mt-5">
-      Jméno Příjmení, třída IT2
+      Jan Stránský, třída IT2
     </footer>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
