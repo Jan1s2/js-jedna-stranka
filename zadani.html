@@ -241,8 +241,8 @@
             osmy.style.fontSize = "2em";
           });
           osmy.addEventListener('mouseleave', () => {
-            osmy.style.color= "white";
-            osmy.style.fontSize = "1em";
+            osmy.style.color= "";
+            osmy.style.fontSize = "";
           });
           </script>
         </div>
@@ -268,12 +268,50 @@
             </ol>
           </blockquote>
           <div class="bg-info p-3">
-            <button onclick="">
+            <button id="devatyButton">
               Zadej číslo
             </button>
           </div>
           <script>
-            /* Zadejte JS kód */
+            function isFloat(num) {
+              return !isNaN(num) && num % 1 !== 0;
+            }
+            function sudeLiche(num) {
+              if(Number.isNaN(parseFloat(num))) {
+                return "Chyba: neni cislo";
+              }
+              if(isFloat(num)) {
+                return "Chyba: cislo neni cele cislo";
+              }
+              if(parseInt(num) < 0) {
+                return "Chyba: cislo je zaporne";
+              }
+/*              let sudost = num % 2 == 0 ? "sude" : "liche";
+              if(num == 0) {
+                alert("Cislo je nula");
+                return 0;
+              } else {
+                alert(`${num} je ${sudost}`);
+              }
+            }*/
+            if(parseInt(num) % 2 == 0) {
+              return "sudé";
+            } else {
+              return "liché";
+            }
+          }
+          devatyButton.addEventListener("click", () => {
+            let cislo = prompt("Napis cislo");
+            // console.log(parseInt((cislo)));
+            
+            console.log(sudeLiche(parseFloat(cislo)));
+            /*cislo = parseInt(cislo);
+            if(Number.isInteger(cislo)) {
+              console.error(`${cislo} is not a number`);
+            } else {
+              sudeLiche(cislo);
+            }*/
+          });
             </script>
         </div>
         <div class="col-sm-6 bg-secondary text-light p-5">
@@ -295,11 +333,43 @@
             </ol>
           </blockquote>
           <div class="bg-light p-3">
-            <a href="">Vypiš den</a>
+            <a href="javascript: alert(denVTydnu((new Date()).getDay()));">Vypiš den</a>
           </div>
           <script>
-           /* Zadejte JS kód */
-           </script>
+            const dny = [
+            "neděle",
+            "pondělí",
+            "úterý",
+            "středa",
+            "čtvrtek",
+            "pátek",
+            "sobota"
+            ];
+            console.log(dny[(new Date()).getDay()]);
+            function denVTydnu(den) {
+              switch (den) {
+                case 1:
+                  return "pondeli";
+                case 2:
+                  return "úterý";
+                case 3:
+                  return "středa";
+                case 4:
+                  return "čtvrtek";
+                case 5:
+                  return "pátek";
+                case 6:
+                  return "sobota";
+                case 0:
+                  return "neděle";
+                default:
+                  return "Nesprávný den";
+              }
+              //return dny[den];
+            }
+
+//            console.log(denVTydnu(5));
+          </script>
         </div>
       </div>
       <hr />
@@ -314,7 +384,22 @@
           <div class="bg-info p-3" id="jedenacty">
           </div>
           <script>
-            /* Zadejte JS kód */
+            function prestupnyRok(rok) {
+              return rok % 4 == 0 && ( rok % 100 != 0 || rok % 400 == 0);
+              //return (rok % 400 == 0 || (rok % 4 == 0 && rok % 100 != 0));
+            }
+            function vypisRoky(start, end) {
+              let seznam = "<ul>";
+                for(let i = start; i <= end; i++) {
+                  if(prestupnyRok(i)) {
+                    console.log(i);
+                    seznam += `<li>${i}</li>`;
+                }
+              }
+              seznam += "</ul>";
+              return seznam;
+            }
+            jedenacty.innerHTML = vypisRoky(2015, 2022);
             </script>
         </div>
         <div class="col-sm-6 bg-secondary text-light p-5">
@@ -328,6 +413,44 @@
           </div>
           <script>
             /* Zadejte JS kód */
+            function isPrime(num) {
+              if(isNaN(num)) {
+                return false;
+              }
+              if (num == 1 || num == 0) {
+                return false;
+              }
+
+              /*
+              do (let i = 0; i * i <= num; i++) {
+                if(num % i == 0)
+              }*/
+              let i = 2;
+              while (i < Math.sqrt(num)) {
+                if(num % i == 0) {
+                  return false;
+                }
+                i++;
+              }
+              return true;
+            }
+
+            function rndPrime() {
+              let random = Math.round(Math.random() * 1000);
+              console.log(`${random} ${isPrime(random) ? "je" : "neni"} prvocislo`);
+            }
+            function printPrimes(start, end) {
+              let seznam = 0;
+              for(let i = start; i <= end; i++) {
+                if(isPrime(i)) {
+                  seznam += i;
+                  console.log(i);
+                }
+              }
+              return seznam;
+            }
+            let cislo = Math.round(Math.random() * 1000);
+            dvanacty.innerHTML = `cislo ${cislo} ${isPrime(cislo) ? "je" : "neni"} prvocislo`;
             </script>
         </div>
       </div>
@@ -343,7 +466,20 @@
           <div class="bg-info p-3" id="trinacty">
           </div>
           <script>
-            /* Zadejte JS kód */
+            function time() {
+              let date = new Date();
+              let [month, day, year] = [date.getMonth(), date.getDate(), date.getFullYear()];
+              let [hour, minutes, seconds] = [date.getHours(), date.getMinutes(), date.getSeconds()];
+              month +=1;
+              return `${day}. ${month}. ${year} ${hour}:${minutes}:${seconds}`;
+            }
+            let cas =new Date();
+            setInterval(() => {
+            //trinacty.innerText = time();
+            trinacty.innerHTML = `<p>Datum ${cas.toLocaleDateString()}</p>`;
+            trinacty.innerHTML += `<p>Cas ${cas.toLocaleTimeString()}</p>`;
+            }, 1000, false);
+
             </script>
         </div>
         <div class="col-sm-6 bg-secondary text-light p-5">
