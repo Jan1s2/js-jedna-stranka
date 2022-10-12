@@ -13,7 +13,6 @@
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
   </head>
@@ -31,13 +30,16 @@
             <p class="text-warning">
               Použij v textu aspoň 3 internetové odkazy na zajímavé příklady
               využití JS!
-              <ul>
-                <li></li>
-              </ul>
             </p>
           </blockquote>
           <div class="bg-info p-3">
-            <p>Zde bude řešení.</p>
+            <p><ul>
+              <li>Programovací jazyk interpretovaný primárně prohlížečem na straně klienta</li>
+              <li>Interakce s uživatelem (<a href="https://ahfarmer.github.io/calculator/">kalkulačka</a>, 
+                <a href="https://www.w3schools.com/js/tryit.asp?filename=tryjs_intro_inner_html">změna HTML obsahu</a>)</li>
+              <li>SPA pomocí Reactu (<a href="https://yog9.github.io/SnapShot/#/SnapScout/mountain">Galerie</a>)</li>
+              <li>Dynamičnost stránky</li>
+            </ul></p>
           </div>
         </div>
         <div class="col-sm-6 bg-secondary text-light p-5">
@@ -47,7 +49,15 @@
             <p class="text-warning">Použij angličtinu!</p>
           </blockquote>
           <div class="bg-info p-3">
-            <p>Zde bude řešení.</p>
+            <p>
+              <ol>
+                <li>Indent lines</li>
+                <li>Use camelCase for names</li>
+                <li>Use semicolons after statements (not required by the language, but it makes it less ambiguous)</li>
+                <li>Put spaces around operators</li>
+                <li>Do not use reserved words for custom use (e.g. alert, link, etc.)</li>
+              </ol>
+            </p>
           </div>
         </div>
       </div>
@@ -88,12 +98,12 @@
             <code>
               let x = 0; // s přiřazením hodnoty<br />
               let x; // bez přiřazení hodnoty<br />
-              let x = null; // ...<br />
-              ... // celé číslo (typ number)<br />
-              ... // reálné číslo (typ number)<br />
-              ... // zápis desetinného čísla pomocí exponentu<br />
-              ... // typ string<br />
-              let prestupny = false // ...<br />
+              let x = null; // bez typu<br />
+              let x = 1; // celé číslo (typ number)<br />
+              let x = 1.97; // reálné číslo (typ number)<br />
+              let x = 1e-8; // zápis desetinného čísla pomocí exponentu<br />
+              let x = "test"; // typ string<br />
+              let prestupny = false // typ boolean<br />
             </code>
           </div>
         </div>
@@ -118,23 +128,24 @@
             </code>
             <h4>Přiřazovací</h4>
             <code>
-              ...
+              =, +=, -=, *=, /=, %= (x = x % y), **= (x = x ** y)
             </code>
             <h4>Logické</h4>
             <code>
-              ...
+              &&, ||, !
             </code>
             <h4>Porovnávací</h4>
             <code>
-              ...
+              ==, === (stejné v hodnotě i typu), !=, !== (rozdílné v hodnotě či typu), &gt;, &lt;, &gt;=, &lt;=, ? (ternární operátor)
             </code>
             <h4>Bitové</h4>
             <code>
-              ...
+              & (AND bitů čísla), | (OR bitů čísla), ~ (převrácení bitů čísla), ^ (exkluzivní OR bitů čísla), &lt;&lt; (posun bitů doleva),
+              &gt;&gt; (posun bitů doprava), &gt;&gt;&gt; (posun bitů doprava bez znaménka)
             </code>
             <h4>Typové</h4>
             <code>
-              typeof (typ proměnné), instanceof (...)
+              typeof (typ proměnné), instanceof (kontrola, jestli je objekt vlevo instancí třídy vpravo (např. Date))
             </code>
           </div>
         </div>
@@ -159,18 +170,22 @@
             <h4>prompt()</h4>
             <code>
               /* Do proměnné password vloží heslo zadané uživatelem */<br />
-              ...
+              let password = prompt("Heslo: ");
             </code>
             <h4>confirm()</h4>
             <code>
-              /* ... */<br />
+              /* Potvrzení akce (resp. okno ano/ne s návratem true/false) */<br />
               if (confirm('Chceš přejít na stránky Seznam.cz?'))
               location.href='https://seznam.cz';
             </code>
             <hr />
-            <p class="alert alert-primary" role="alert">
+            <div class="alert alert-primary" role="alert">
               Varování:
-            </p>
+              <ul>
+                <li>Můžou vypadat v různých prohlížečích jinak</li>
+                <li>Můžou být blokována</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -512,17 +527,14 @@
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
       crossorigin="anonymous"
     ></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
       crossorigin="anonymous"
     ></script>
     <script
       src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
   </body>
