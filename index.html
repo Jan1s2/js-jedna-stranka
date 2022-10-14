@@ -510,8 +510,8 @@
           <script>
             const photos = ["img/hrad.webp", "img/praha.jpg", "img/staromak.jpg", "img/vltava.jpg"];
             function changePhoto() {
-              let cislo = Math.floor(Math.random() * 4);
-              foto.src = photos[cislo];
+              let cislo = Math.floor(Math.random() * photos.length);
+              document.getElementById('foto').src = photos[cislo];
             }
             setInterval(() => {
               changePhoto();
